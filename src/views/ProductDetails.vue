@@ -14,20 +14,21 @@ function addToCart() {
 </script>
 
 <template>
-  <div v-if="product" class="max-w-5xl mx-auto p-6 grid md:grid-cols-2 gap-8">
-<img
-  :src="product.image"
-  :alt="product.name"
-  class="w-full h-64 md:h-80 object-contain p-2 rounded-lg shadow bg-gray-50"
-/>
-    <div>
-      <h1 class="text-3xl font-bold mb-4">{{ product.name }}</h1>
-      <p class="text-gray-600 mb-4">{{ product.description }}</p>
-      <p class="text-2xl font-bold text-blue-600 mb-6">{{ product.price }} €</p>
-      <button @click="addToCart" class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg shadow transition">
-        In den Warenkorb
-      </button>
-    </div>
+  <div v-if="product" class="detail-page">
+    <router-link class="back-link" to="/">← Zur Kollektion</router-link>
+    <section class="product-detail">
+      <div class="detail-image"><img :src="product.image" :alt="product.name" /></div>
+      <div class="detail-content">
+        <p class="eyebrow">Studio Standard</p>
+        <div class="detail-heading"><h1>{{ product.name }}</h1><strong>{{ product.price.toFixed(2) }} €</strong></div>
+        <p class="detail-description">{{ product.description }}</p>
+        <dl class="product-facts">
+          <div><dt>Passform</dt><dd>Regular Fit</dd></div>
+          <div><dt>Versand</dt><dd>2–4 Werktage</dd></div>
+        </dl>
+        <button class="primary-button" type="button" @click="addToCart">In den Warenkorb</button>
+      </div>
+    </section>
   </div>
-  <div v-else class="p-4">Produkt nicht gefunden</div>
+  <div v-else class="empty-page">Produkt nicht gefunden.</div>
 </template>

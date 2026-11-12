@@ -7,9 +7,9 @@ import WhiteShoesImg from '../assets/images/shoes/WhiteShoes.png'
 
 
 export const products: Product[] = [
-  { id: 1, name: 'WhiteShirt', price: 20, description: 'Cooles T-Shirt', image: WhiteShirtImg },
-  { id: 2, name: 'BlackShirt', price: 20, description: 'Cooles T-Shirt', image: BlackShirtImg },
-  { id: 3, name: 'BlackHoodie', price: 40, description: 'Warmer Hoodie', image: BlackHoodieImg },
-  { id: 4, name: 'WhiteHoodie', price: 40, description: 'Warmer Hoodie', image: WhiteHoodieImg },
-  { id: 5, name: 'WhiteShoes', price: 60, description: 'Stylische Sneaker', image: WhiteShoesImg },
+  { id: 1, name: 'T-Shirt — White', price: 20, description: 'Unkompliziertes Shirt aus weichem Jersey.', image: WhiteShirtImg },
+  { id: 2, name: 'T-Shirt — Black', price: 20, description: 'Ein ruhiger Klassiker für jeden Tag.', image: BlackShirtImg },
+  { id: 3, name: 'Hoodie — Black', price: 40, description: 'Wärmender Layer mit entspannter Silhouette.', image: BlackHoodieImg },
+  { id: 4, name: 'Hoodie — White', price: 40, description: 'Leichter Hoodie in klarer, heller Optik.', image: WhiteHoodieImg },
+  { id: 5, name: 'Sneaker — White', price: 60, description: 'Reduzierter Sneaker für den Alltag.', image: WhiteShoesImg },
 ]

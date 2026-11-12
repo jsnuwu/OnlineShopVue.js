@@ -11,10 +11,13 @@ function goToCart() {
 </script>
 
 <template>
-  <nav class="bg-gray-800 text-white p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold cursor-pointer" @click="$router.push('/')">Mein Shop</h1>
-    <button @click="goToCart" class="bg-blue-500 px-4 py-2 rounded">
-      Warenkorb ({{ cart.totalItems }})
-    </button>
-  </nav>
+  <header class="site-header">
+    <nav class="nav-wrap" aria-label="Hauptnavigation">
+      <button class="wordmark" type="button" @click="$router.push('/')">STUDIO STANDARD</button>
+      <p class="nav-note">Essentials für jeden Tag</p>
+      <button class="cart-button" type="button" @click="goToCart">
+        Warenkorb <span>{{ cart.totalItems }}</span>
+      </button>
+    </nav>
+  </header>
 </template>

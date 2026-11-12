@@ -1,46 +1,44 @@
 <template>
-  <div class="max-w-3xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-6 text-center">Warenkorb</h1>
+  <div class="cart-page">
+    <div class="cart-heading"><p class="eyebrow">Deine Auswahl</p><h1>Warenkorb</h1></div>
 
-    <div v-if="cart.items.length === 0" class="text-center text-gray-600">
-      Dein Warenkorb ist leer 
+    <div v-if="cart.items.length === 0" class="cart-empty">
+      <p>Dein Warenkorb ist noch leer.</p>
+      <router-link to="/">Kollektion ansehen</router-link>
     </div>
 
-    <div v-else class="space-y-4">
+    <div v-else class="cart-layout">
+      <section class="cart-items">
       <div
         v-for="item in cart.items"
         :key="item.id"
-        class="flex items-center justify-between p-4 border rounded-lg shadow hover:shadow-lg transition"
+        class="cart-item"
       >
-        <div class="flex items-center gap-4">
-          <img :src="item.image" :alt="item.name" class="w-16 h-16 object-cover rounded" />
+        <div class="cart-product">
+          <img :src="item.image" :alt="item.name" />
           <div>
-            <h2 class="font-semibold">{{ item.name }}</h2>
-            <p class="text-gray-600">x{{ item.quantity }}</p>
+            <h2>{{ item.name }}</h2>
+            <p>Menge {{ item.quantity }}</p>
           </div>
         </div>
-        <div class="flex items-center gap-4">
-          <span class="text-blue-600 font-bold">{{ item.price * item.quantity }} €</span>
+        <div class="cart-price">
+          <span>{{ (item.price * item.quantity).toFixed(2) }} €</span>
           <button
             @click="removeItem(item.id)"
-            class="text-red-500 hover:text-red-700 transition"
+            type="button"
+            class="remove-button"
           >
             Entfernen
           </button>
         </div>
       </div>
+      </section>
 
-      <div class="mt-6 flex justify-between items-center font-bold text-xl">
-        <span>Gesamt:</span>
-        <span>{{ cart.totalPrice }} €</span>
-      </div>
-
-      <button
-        @click="checkout"
-        class="mt-4 w-full bg-green-500 hover:bg-green-600 text-white py-2 rounded transition"
-      >
-        Zur Kasse
-      </button>
+      <aside class="order-summary">
+        <div><span>Zwischensumme</span><strong>{{ cart.totalPrice.toFixed(2) }} €</strong></div>
+        <p>Versand und Steuern werden an der Kasse berechnet.</p>
+        <button @click="checkout" class="primary-button" type="button">Zur Kasse</button>
+      </aside>
     </div>
   </div>
 </template>

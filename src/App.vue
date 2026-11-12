@@ -3,10 +3,16 @@ import Navbar from './components/Navbar.vue'
 </script>
 
 <template>
-  <div class="app-shell">
+  <div>
     <Navbar />
-    <main>
-      <router-view />
-    </main>
+    <router-view /> 
   </div>
 </template>
+
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+</style>
